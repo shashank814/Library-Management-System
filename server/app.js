@@ -10,6 +10,7 @@ import borrowRouter from './routes/borrowRouter.js';
 import expressFileupload from 'express-fileupload'
 import userRouter from './routes/userRouter.js';
 import { notifyUsers } from './services/notifyUsers.js';
+import { removeUnverifiesAccounts } from './services/removeUnverifiedAccounts.js';
 
 export const app = express();
 
@@ -38,6 +39,7 @@ app.use("/api/v1/borrow", borrowRouter)
 app.use("/api/v1/user", userRouter)
 
 notifyUsers();
+removeUnverifiesAccounts();
 connectDB()
 
 app.use(errorMiddleware)
