@@ -46,6 +46,7 @@ export const {
     toggleRecordBookPopup,
     togglereturnBookPopup,
     toggleSettingPopup,
+    addNewAdminPopup,
 } = popupSlice.actions;
 
 export default popupSlice.reducer;
