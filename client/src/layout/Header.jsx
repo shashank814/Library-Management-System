@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 
 'react-redux'
-import users from '../assets/users.png'
-import settingWhite from '../assets/settingWhite.png'
+import userBlack from '../assets/userBlack.png'
+import settingBlack from '../assets/settingBlack.png'
+import { toggleSettingPopup } from '../store/slices/popUpSlice'
 
 const Header = () => {
 
@@ -35,12 +36,12 @@ const Header = () => {
 
   return (
     <>
-      <Header className="absolute top-0 bg-white w-full py-4 px-6 left-0 shadow-md flex justify-between items-center">
+      <header className="absolute top-0 bg-white w-full py-4 px-6 left-0 shadow-md flex justify-between items-center">
          
          {/* LEFT SIDE */}
 
          <div className='flex items-center gap-2'>
-            <img src={users} alt="" className='w-8 h-8' />
+            <img src={userBlack} alt="" className='w-8 h-8' />
 
             <div className='flex flex-col'>
                 <span className='text-sm font-medium sm:text-lg lg:text-xl sm:font-semibold '>
@@ -49,7 +50,7 @@ const Header = () => {
                 <span className='text-sm font-medium sm:text-lg sm:font-semibold'>
                     {user && user.role}
                 </span>
-                <span>Admin</span>
+                {/* <span>Admin</span> */}
             </div>
          </div>
 
@@ -60,10 +61,11 @@ const Header = () => {
                 <span>{currentDate}</span>
             </div>
             <span className='bg-black h-14 w-[2px]'>
-                <img src={settingWhite} alt="" />
+                <img src={settingBlack} alt="" 
+                className='w-8 h-8' onClick={() => dispatch(toggleSettingPopup())}/>
             </span>
          </div>
-      </Header>
+      </header>
     </>
   )
 }

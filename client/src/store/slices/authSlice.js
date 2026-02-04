@@ -95,7 +95,7 @@ const authSlice = createSlice({
             state.loading = false;
             state.message = action.payload;
         },
-        forgotPasswordFailed(state) {
+        forgotPasswordFailed(state, action) {
             state.loading = false;
             state.error = action.payload;
         },
@@ -104,13 +104,17 @@ const authSlice = createSlice({
             state.error = null;
             state.message = null;
         },
+        resetPasswordFailed(state, action) {
+            state.loading = false;
+            state.error = action.payload;
+        },
         resetPasswordSuccess(state, action) {
             state.loading = false;
             state.message = action.payload.message;
             state.user = action.payload.user;
             state.isAuthenticated = true
         },
-        updatePasswordFailed(state) {
+        updatePasswordFailed(state, action) {
             state.loading = false;
             state.error = action.payload;
         },
@@ -122,10 +126,8 @@ const authSlice = createSlice({
         updatePasswordSuccess(state, action) {
             state.loading = false;
             state.message = action.payload;
-        },
-        resetPasswordFailed(state) {
-            state.loading = false;
-            state.error = action.payload;
+            // state.user = action.payload.user;
+            // state.isAuthenticated = true;
         },
 
 
@@ -223,7 +225,7 @@ export const forgotPassword = (email) => async(dispatch) => {
             "Content-Type": "application/json",
         },
     }).then((res) => {
-        dispatch(authSlice.actions.forgotPasswordSuccess(res.data))
+        dispatch(authSlice.actions.forgotPasswordSuccess(res.data.message))
     }).catch(error => {
         dispatch(authSlice.actions.forgotPasswordFailed(error.response.data.message))
     })
