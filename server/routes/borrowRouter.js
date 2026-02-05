@@ -4,7 +4,7 @@ import { borrowedBooks, getBorrowedBooksForAdmin, recordBorrowedBook, returnBorr
 
 const borrowRouter = express.Router()
 
-borrowRouter.post("/record-borrow-book/:id", isAuthenticated, isAuthorized("Admin"), recordBorrowedBook);
+borrowRouter.post("/record-borrow-book/:id", isAuthenticated, isAuthorized("Admin", "User"), recordBorrowedBook);
 
 borrowRouter.get("/borrowed-books-by-users", isAuthenticated, isAuthorized("Admin"), getBorrowedBooksForAdmin)
 

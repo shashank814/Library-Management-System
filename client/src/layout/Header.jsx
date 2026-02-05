@@ -55,7 +55,7 @@ const Header = () => {
          </div>
 
          {/* RIGHT SIDE */}
-         <div className='hidden md:flex items-center gap-2'>
+         {/* <div className='hidden md:flex items-center gap-2'>
             <div className='flex flex-col text-sm lg:text-base items-end font-semibold'>
                 <span>{currentTime}</span>
                 <span>{currentDate}</span>
@@ -64,7 +64,26 @@ const Header = () => {
                 <img src={settingBlack} alt="" 
                 className='w-8 h-8' onClick={() => dispatch(toggleSettingPopup())}/>
             </span>
-         </div>
+         </div> */}
+
+         <div className="hidden md:flex items-center gap-3">
+  <div className="flex flex-col text-sm lg:text-base items-end font-semibold">
+    <span>{currentTime}</span>
+    <span>{currentDate}</span>
+  </div>
+
+  {/* Divider */}
+  <span className="bg-black h-10 w-[2px]" />
+
+  {/* Settings Icon */}
+  <img
+    src={settingBlack}
+    alt="settings"
+    className="w-8 h-8 cursor-pointer"
+    onClick={() => dispatch(toggleSettingPopup())}
+  />
+</div>
+
       </header>
     </>
   )

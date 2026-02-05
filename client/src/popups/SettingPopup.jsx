@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updatePassword } from '../store/slices/authSlice'
-import setting from '../assets/settingBlack.png'
+import settingBlack from '../assets/settingBlack.png'
 import closeSquare from '../assets/closeSquare.png'
 import { toggleSettingPopup } from '../store/slices/popUpSlice'
 
@@ -28,7 +28,7 @@ const SettingPopup = () => {
         <div className='p-8'>
           <header className='flex justify-between items-center mb-7 pb-5 border-b-[1px] border-black'>
             <div className='flex items-center gap-3'>
-              <img src={setting} alt="" className='w-6 h-6 bg-gray-300 p-5 rounded-lg cursor-pointer' />
+              <img src={settingBlack} alt="" className='bg-gray-300 p-5 rounded-lg cursor-pointer' />
 
               <h3 className='text-xl font-bold'>Change Credentials</h3>
             </div>

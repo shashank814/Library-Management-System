@@ -156,7 +156,7 @@ export const register = (data) => async(dispatch) => {
         },
     }).then((res) => {
         dispatch(authSlice.actions.registerSuccess(res.data))
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.registerFailed(error.response.data.message))
     })
 };
@@ -171,7 +171,7 @@ export const otpVerification = (email, otp) => async(dispatch) => {
         },
     }).then((res) => {
         dispatch(authSlice.actions.otpVerificationSuccess(res.data))
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.otpVerificationFailed(error.response.data.message))
     })
 }
@@ -186,7 +186,7 @@ export const login = (data) => async(dispatch) => {
         },
     }).then((res) => {
         dispatch(authSlice.actions.loginSuccess(res.data))
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.loginFailed(error.response.data.message))
     })
 }
@@ -199,7 +199,7 @@ export const logout = () => async(dispatch) => {
     }).then((res) => {
         dispatch(authSlice.actions.logoutSuccess(res.data.message));
         dispatch(authSlice.actions.resetAuthSlice())
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.loginFailed(error.response.data.message))
     })
 }
@@ -211,7 +211,7 @@ export const getUser = () => async(dispatch) => {
         withCredentials: true,
     }).then((res) => {
         dispatch(authSlice.actions.getUserSuccess(res.data));
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.getUserFailed(error.response.data.message))
     })
 }
@@ -226,7 +226,7 @@ export const forgotPassword = (email) => async(dispatch) => {
         },
     }).then((res) => {
         dispatch(authSlice.actions.forgotPasswordSuccess(res.data.message))
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.forgotPasswordFailed(error.response.data.message))
     })
 }
@@ -241,7 +241,7 @@ export const resetPassword = (data, token) => async(dispatch) => {
         },
     }).then((res) => {
         dispatch(authSlice.actions.resetPasswordSuccess(res.data))
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.resetPasswordFailed(error.response.data.message))
     })
 }
@@ -256,7 +256,7 @@ export const updatePassword = (data) => async(dispatch) => {
         },
     }).then((res) => {
         dispatch(authSlice.actions.updatePasswordSuccess(res.data.message))
-    }).catch(error => {
+    }).catch((error) => {
         dispatch(authSlice.actions.updatePasswordFailed(error.response.data.message))
     })
 }
