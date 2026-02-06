@@ -3,6 +3,7 @@ import { BookA } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleReadBookPopup } from '../store/slices/popUpSlice';
 import Header from '../layout/Header';
+import ReadBookPopup from '../popups/ReadBookPopup'
 
 const MyBorrowedBooks = () => {
 
@@ -89,9 +90,14 @@ const MyBorrowedBooks = () => {
                 </tbody>
               </table>
             </div>
-          ) : ""
-        }
+          ) : filter === "returned" ? (
+            <h3 className='text-3xl mt-5 font-medium'>No returned books found!</h3>
+          ) : (
+            <h3 className='text-3xl mt-5 font-medium'>No non-returned books found!</h3>
+          )}
        </main>
+
+       {readBookPopup && <ReadBookPopup book={readBook} />}
     </>
   )
 }

@@ -10,6 +10,6 @@ borrowRouter.get("/borrowed-books-by-users", isAuthenticated, isAuthorized("Admi
 
 borrowRouter.get("/my-borrowed-books", isAuthenticated, borrowedBooks);
 
-borrowRouter.put("/return-borrowed-book/:bookId", isAuthenticated, isAuthorized("Admin"), returnBorrowedBook);
+borrowRouter.put("/return-borrowed-book/:bookId", isAuthenticated, isAuthorized("Admin", "User"), returnBorrowedBook);
 
 export default borrowRouter

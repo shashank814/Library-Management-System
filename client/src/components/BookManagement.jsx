@@ -22,7 +22,7 @@ const BookManagement = () => {
     loading: borrowSliceLoading,
     error: borrowSliceError,
     message: borrowSliceMessage,
-  } = useSelector((state) => state.auth)
+  } = useSelector((state) => state.borrow)
 
   const [readBook, setReadBook] = useState({})
   const openReadPopup = (id) => {
