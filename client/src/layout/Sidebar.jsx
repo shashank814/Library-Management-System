@@ -39,13 +39,17 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, setSelectedComponent }) => {
   
   return (
   <>  
-    <aside className={`${isSidebarOpen ? "left-0" : "-left-full"} z-10 transition-all duration-700 md:relative md:left-0 flex w-64 bg-black text-white flex-col h-full`} style={{position: "fixed"}}>
+    {/* <aside className={`${isSidebarOpen ? "left-0" : "-left-full"} z-10 transition-all duration-700 md:relative md:left-0 flex w-64 bg-black text-white flex-col h-full`} style={{position: "fixed"}}> */}
+    <aside className={`${isSidebarOpen ? "left-0" : "-left-full"} z-10 transition-all duration-700 md:relative md:left-0 flex w-64 bg-black text-white flex-col h-screen overflow-y-auto`} style={{position: "fixed"}}>
+
        
        <div className='px-6 py-4 my-8'>
           <img src={logoWithTitle} alt="logo" />
        </div>
 
-       <nav className='flex-1 px-6 space-y-2'>
+       {/* <nav className='flex-1 px-6 space-y-2'> */}
+       <nav className='flex-1 px-6 space-y-2 overflow-y-auto'>
+
 
         <button className='w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2' onClick={() => setSelectedComponent("Dashboard")}>
           <img src={dashboardIcon} alt="" /> <span>Dashboard</span>
@@ -88,7 +92,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, setSelectedComponent }) => {
             </>
           )}
 
-          <button className='w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2'
+          <button className='md:hidden w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2'
            onClick={() => dispatch(toggleSettingPopup())}
            >
           <img src={settingWhite} alt="" /> <span>Update Credentials</span>
@@ -96,7 +100,9 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, setSelectedComponent }) => {
 
        </nav>
 
-       <div className='px-6 py-4'>
+       {/* <div className='px-6 py-4'> */}
+       <div className='px-6 py-4 mt-auto'>
+
 
        <button className='py-2 font-medium text-center bg-transparent rounded-md hover:cursor-pointer flex items-center justify-center space-x-5 mx-auto w-fit' onClick={handleLogout}>
         <img src={logoutIcon} alt="" /> <span>Logout</span>
@@ -112,3 +118,6 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, setSelectedComponent }) => {
 }
 
 export default Sidebar
+
+
+

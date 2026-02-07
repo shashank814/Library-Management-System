@@ -13,7 +13,7 @@ const RecordBookPopup = ({bookId}) => {
 
     console.log("bookId:", bookId);   // 👈 ADD THIS
   console.log("email:", email);
-    dispatch(recordBorrowBook({email, bookId}))
+    dispatch(recordBorrowBook(email, bookId))
   }
 
   return (
